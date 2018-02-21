@@ -14,7 +14,6 @@
   limitations under the License.
 -->
 
-<!--TODO (1) Change the ConstraintLayout to a LinearLayout--><!--TODO (2) Make the orientation vertical--><!--TODO (3) Give left, right, and top padding of 16dp--><!--TODO (4) Remove the line that declares the id, we don't need it--><!--TODO (5) Remove the xmlns:app declaration, we don't need that anymore-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,11 +42,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen16dp">
+
         <TextView
             android:id="@+id/tv_github_search_results_json"
-            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/make_search"/>
+            android:text="@string/make_search"
+            android:textSize="18sp" />
     </ScrollView>
 </LinearLayout>

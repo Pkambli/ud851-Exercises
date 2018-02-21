@@ -16,6 +16,7 @@
 package com.example.android.datafrominternet.utilities;
 
 import android.net.Uri;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,6 +30,7 @@ import java.util.Scanner;
  */
 public class NetworkUtils {
 
+    private static final String TAG = NetworkUtils.class.getSimpleName();
     final static String GITHUB_BASE_URL =
             "https://api.github.com/search/repositories";
 
@@ -77,6 +79,7 @@ public class NetworkUtils {
 
             Scanner scanner = new Scanner(in);
             scanner.useDelimiter("\\A");
+            Log.e(TAG, "scanner: "+scanner);
 
             boolean hasInput = scanner.hasNext();
             if (hasInput) {
@@ -84,6 +87,7 @@ public class NetworkUtils {
             } else {
                 return null;
             }
+
         } finally {
             urlConnection.disconnect();
         }

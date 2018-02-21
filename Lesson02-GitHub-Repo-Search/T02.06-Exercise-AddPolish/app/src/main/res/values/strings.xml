@@ -16,5 +16,7 @@
 <resources>
     <string name="app_name">Github Query</string>
     <string name="search">Search</string>
+    <string name="error_occurred">Error has occurred</string>
+    <string name="make_search">Make a search!</string>
     <!--TODO (1) Add a string stating that an error has occurred-->
 </resources>
