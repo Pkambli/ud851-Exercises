@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 // TODO (1) Implement OnPreferenceChangeListener
 public class SettingsFragment extends PreferenceFragmentCompat implements
-        OnSharedPreferenceChangeListener {
+        OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -105,5 +105,29 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         super.onDestroy();
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        // In this context, we're using the onPreferenceChange listener for checking whether the
+        // size setting was set to a valid value.
+
+        Toast errorMessage=Toast.makeText(getContext(), "Please select a number between 0.1 and 3", Toast.LENGTH_SHORT);
+
+        // Double check that the preference is the size preference
+        String sizeKey=getString(R.string.pref_size_key);
+        if(preference.getKey().equals(sizeKey))
+        {
+            String stringSize=(String) newValue;
+
+                float size=Float.parseFloat(stringSize);
+                // If the number is outside of the acceptable range, show an error.
+                if(size>3|| size <=0)
+                {
+                    errorMessage.show();
+                    return false;
+                }
+        }
+        return true;
     }
 }
